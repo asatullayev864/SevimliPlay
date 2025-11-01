@@ -36,7 +36,7 @@ export class SubscriptionsService {
     if (!plan) throw new NotFoundException('Tarif reja topilmadi ❗️');
 
     if (new Date(start_date) >= new Date(end_date)) {
-      throw new BadRequestException('Boshlanish sanasi tugash sanasidan oldin bo‘lishi kerak ❗️');
+      throw new BadRequestException("Boshlanish sanasi tugash sanasidan oldin bo'lishi kerak ❗️");
     }
 
     const subscription = this.subscriptionRepo.create({

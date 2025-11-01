@@ -34,6 +34,6 @@ export class User {
     @OneToMany(() => Subscription, (subscription) => subscription.user)
     subscriptions: Subscription[];
 
-    @OneToMany(() => Profile, (profile) => profile.userId)
+    @OneToMany(() => Profile, (profile) => profile.user)
     profileId: Profile[];
 }

@@ -8,6 +8,7 @@ import { PlansModule } from './plans/plans.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { DevicesModule } from './devices/devices.module';
 import { ProfilesModule } from './profiles/profiles.module';
+import { ContentsModule } from './contents/contents.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { ProfilesModule } from './profiles/profiles.module';
     SubscriptionsModule,
     DevicesModule,
     ProfilesModule,
+    ContentsModule,
   ],
 })
 export class AppModule { }

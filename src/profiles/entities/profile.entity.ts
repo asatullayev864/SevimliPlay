@@ -22,7 +22,7 @@ export class Profile {
         onUpdate: 'CASCADE'
     })
     @JoinColumn({ name: 'userId' })
-    userId: User;
+    user: User;
 
     @Column({ nullable: true })
     display_name: string;
