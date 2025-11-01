@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 import { ContentTypes, ContentLanguage, ContentMaturityLevel } from "../../common/enum/content.enums";
 import { ContentTag } from "../../content-tags/entities/content-tag.entity";
 import { ContentCategory } from "../../content-categories/entities/content-category.entity";
+import { Raiting } from "../../raitings/entities/raiting.entity";
 
 @Entity("contents")
 export class Content {
@@ -58,4 +59,7 @@ export class Content {
 
     @OneToMany(() => ContentCategory, (contentCategory) => contentCategory.content)
     contentCategories: ContentCategory[];
+
+    @OneToMany(() => Raiting, (raiting) => raiting.content)
+    raiting: Raiting[];
 }

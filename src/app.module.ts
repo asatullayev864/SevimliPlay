@@ -13,6 +13,7 @@ import { TagsModule } from './tags/tags.module';
 import { ContentTagsModule } from './content-tags/content-tags.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ContentCategoriesModule } from './content-categories/content-categories.module';
+import { RaitingsModule } from './raitings/raitings.module';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { ContentCategoriesModule } from './content-categories/content-categories
     ContentTagsModule,
     CategoriesModule,
     ContentCategoriesModule,
+    RaitingsModule,
   ],
 })
 export class AppModule { }

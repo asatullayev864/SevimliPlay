@@ -11,6 +11,7 @@ import {
 import { Language, MaturityLevel } from '../../common/enum/profile.enums';
 import { User } from '../../users/entities/user.entity';
 import { Device } from '../../devices/entities/device.entity';
+import { Raiting } from '../../raitings/entities/raiting.entity';
 
 @Entity({ name: 'profiles' })
 export class Profile {
@@ -55,4 +56,7 @@ export class Profile {
 
     @OneToMany(() => Device, (device) => device.profile)
     devices: Device[];
+
+    @OneToMany(() => Raiting, (raiting) => raiting.profile)
+    raiting: Raiting[];
 }
