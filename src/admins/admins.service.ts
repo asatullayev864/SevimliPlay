@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Admin } from './entities/admin.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { AdminRoles } from '../common/enum/admin-roles';
 
 @Injectable()
 export class AdminsService {
@@ -12,6 +13,29 @@ export class AdminsService {
     @InjectRepository(Admin)
     private readonly adminRepo: Repository<Admin>
   ) { }
+
+  async onModuleInit() {
+    const email = process.env.SUPER_ADMIN_EMAIL;
+    const password = process.env.SUPER_ADMIN_PASSWORD;
+    const name = String(process.env.SUPER_ADMIN_NAME) || "Jorabek";
+    const phone = String(process.env.SUPER_ADMIN_PHONE) || "+998500406088";
+
+    if (!email || !password) return;
+
+    const existSuperAdmin = await this.adminRepo.findOne({ where: { email } });
+
+    if (!existSuperAdmin) {
+      const hashedPassword = await bcrypt.hash(password, 7);
+      await this.adminRepo.create({
+        email,
+        password: hashedPassword,
+        full_name: name,
+        is_active: true,
+        role: AdminRoles.SUPERADMIN
+      });
+      console.log(`Superadmin yaratildi: "email": ${email} || "password": ${password}`);
+    }
+  }
 
   async findAdminByEmail(email: string) {
     const user = await this.adminRepo.findOne({

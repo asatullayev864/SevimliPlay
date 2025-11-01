@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Subscription } from '../../subscriptions/entities/subscription.entity';
 
 @Entity({ name: 'users' })
 export class User {
@@ -28,4 +29,7 @@ export class User {
 
     @UpdateDateColumn({ type: 'timestamp with time zone' })
     updated_at: Date;
+
+    @OneToMany(() => Subscription, (subscription) => subscription.user)
+    subscriptions: Subscription[];
 }

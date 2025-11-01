@@ -21,6 +21,9 @@ export class Admin {
     @Column({ type: 'varchar', nullable: true })
     refresh_token?: string | null;
 
+    @Column({ default: true })
+    is_active: boolean;
+
     @CreateDateColumn({ type: 'timestamp' })
     created_at: Date;
 
