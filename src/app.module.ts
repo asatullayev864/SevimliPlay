@@ -9,6 +9,10 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { DevicesModule } from './devices/devices.module';
 import { ProfilesModule } from './profiles/profiles.module';
 import { ContentsModule } from './contents/contents.module';
+import { TagsModule } from './tags/tags.module';
+import { ContentTagsModule } from './content-tags/content-tags.module';
+import { CategoriesModule } from './categories/categories.module';
+import { ContentCategoriesModule } from './content-categories/content-categories.module';
 
 @Module({
   imports: [
@@ -41,6 +45,10 @@ import { ContentsModule } from './contents/contents.module';
     DevicesModule,
     ProfilesModule,
     ContentsModule,
+    TagsModule,
+    ContentTagsModule,
+    CategoriesModule,
+    ContentCategoriesModule,
   ],
 })
 export class AppModule { }

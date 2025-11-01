@@ -20,9 +20,6 @@ export class Subscription {
     @JoinColumn({ name: 'user_id' })
     user: User;
 
-    @Column()
-    user_id: number;
-
     @ManyToOne(() => Plan, (plan) => plan.subscriptions, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'plan_id' })
     plan: Plan;

@@ -1,5 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
 import { ContentTypes, ContentLanguage, ContentMaturityLevel } from "../../common/enum/content.enums";
+import { ContentTag } from "../../content-tags/entities/content-tag.entity";
+import { ContentCategory } from "../../content-categories/entities/content-category.entity";
 
 @Entity("contents")
 export class Content {
@@ -50,4 +52,10 @@ export class Content {
 
     @UpdateDateColumn({ type: "timestamp" })
     updated_at: Date;
+
+    @OneToMany(() => ContentTag, (contentTag) => contentTag.content)
+    contentTags: ContentTag[];
+
+    @OneToMany(() => ContentCategory, (contentCategory) => contentCategory.content)
+    contentCategories: ContentCategory[];
 }
