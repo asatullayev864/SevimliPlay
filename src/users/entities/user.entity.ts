@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Subscription } from '../../subscriptions/entities/subscription.entity';
+import { Profile } from '../../profiles/entities/profile.entity';
 
 @Entity({ name: 'users' })
 export class User {
@@ -32,4 +33,7 @@ export class User {
 
     @OneToMany(() => Subscription, (subscription) => subscription.user)
     subscriptions: Subscription[];
+
+    @OneToMany(() => Profile, (profile) => profile.userId)
+    profileId: Profile[];
 }

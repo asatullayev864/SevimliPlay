@@ -6,6 +6,8 @@ import { AdminsModule } from './admins/admins.module';
 import { AuthModule } from './auth/auth.module';
 import { PlansModule } from './plans/plans.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+import { DevicesModule } from './devices/devices.module';
+import { ProfilesModule } from './profiles/profiles.module';
 
 @Module({
   imports: [
@@ -35,6 +37,8 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
     AuthModule,
     PlansModule,
     SubscriptionsModule,
+    DevicesModule,
+    ProfilesModule,
   ],
 })
 export class AppModule { }
